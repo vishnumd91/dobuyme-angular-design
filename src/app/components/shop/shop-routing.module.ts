@@ -11,11 +11,7 @@ import { HomeFiveComponent } from './home-five/home-five.component';
 
 // Routes
 const routes: Routes = [
-  { path: 'one', component: HomeComponent },
-  { path: 'two', component: HomeTwoComponent },
-  { path: 'three', component: HomeThreeComponent },
-  { path: 'four', component: HomeFourComponent },
-  { path: 'five', component: HomeFiveComponent },
+  { path: '', component: HomeComponent },
   { path: 'products/:category', component: ProductLeftSidebarComponent },
   { path: 'product/:id', component: ProductDetailsComponent }
 

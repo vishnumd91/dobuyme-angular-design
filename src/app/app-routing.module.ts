@@ -12,10 +12,6 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    component: DemoComponent
-  },
-  {
     path: '',
     component: MainComponent,
     children: [
@@ -36,7 +32,7 @@ const appRoutes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home/one'
+    redirectTo: 'home'
   }
 ];
 
