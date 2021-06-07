@@ -27,9 +27,7 @@ import { ProductCarouselThreeComponent } from './home-three/product-carousel-thr
 import { BrandsComponent } from './widgets/brands/brands.component';
 import { CategoriesComponent } from './widgets/categories/categories.component';
 import { PopularProductsComponent } from './widgets/popular-products/popular-products.component';
-import { HomeFourComponent } from './home-four/home-four.component';
 import { ProductZoomComponent } from './products/product-details/product-zoom/product-zoom.component';
-import { HomeFiveComponent } from './home-five/home-five.component';
 
 
 @NgModule({
@@ -52,9 +50,7 @@ import { HomeFiveComponent } from './home-five/home-five.component';
     BrandsComponent,
     CategoriesComponent,
     PopularProductsComponent,
-    HomeFourComponent,
     ProductZoomComponent,
-    HomeFiveComponent,
   ],
   imports: [
     CommonModule,
