@@ -1,3 +1,5 @@
+<app-header></app-header>
+<!-- <app-main></app-main> -->
 <app-main-carousel [slides]="slides"></app-main-carousel>
 <div class="home-1-wrap">
   <div class="container">
@@ -48,7 +50,7 @@
 
             </mat-tab>
 
-            <mat-tab label="LATEST PRODUCTS">
+            <!-- <mat-tab label="LATEST PRODUCTS">
 
                     <app-product-carousel [product]="products | slice:0:14"></app-product-carousel>
 
@@ -58,11 +60,12 @@
 
                       <app-product-carousel [product]="products | slice:14:22"></app-product-carousel>
 
-            </mat-tab>
+            </mat-tab> -->
 
           </mat-tab-group>
         </div>
-      <app-banners [banners]="banners"></app-banners>
+      <!-- <app-banners [banners]="banners"></app-banners> -->
       <app-product-vertical [products]="products"></app-product-vertical>
     </div>
 </div>
+<app-footer></app-footer>
