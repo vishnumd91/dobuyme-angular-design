@@ -165,21 +165,21 @@ export class MainComponent implements OnInit {
       ]
     },
     {
-      displayName: 'Blog',
+      displayName: 'Property for Rent',
       iconName: 'report_problem',
       children: [
         {
-          displayName: 'Blog List',
+          displayName: 'Rent Residential',
           iconName: 'group',
           route: '/blog/blog-list'
         },
         {
-          displayName: 'Blog Columns',
+          displayName: 'Rent Commercial',
           iconName: 'speaker_notes',
           route: '/blog/blog-column',
         },
         {
-          displayName: 'Blog Details',
+          displayName: 'Room for Rent',
           iconName: 'feedback',
           route: '/blog/blog-details'
         }
