@@ -16,6 +16,9 @@ const appRoutes: Routes = [
     component: MainComponent,
     children: [
       {
+        path: '', redirectTo: 'home', pathMatch: 'full'
+      },
+      {
         path: 'home',
         loadChildren: () => import('./components/shop/shop.module').then(m => m.ShopModule)
       },
