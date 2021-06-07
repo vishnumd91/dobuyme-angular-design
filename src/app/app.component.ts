@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -10,7 +11,7 @@ export class AppComponent {
 
   title = 'ecommerce-sophia-new';
 
-  constructor(private spinner: NgxSpinnerService) {}
+  constructor(private spinner: NgxSpinnerService, private router: Router) {}
 
 
   ngOnInit() {
@@ -23,6 +24,9 @@ export class AppComponent {
     }, 5000);
 
     window.scroll(0,0);
+
+    if (window.location.pathname == '/')
+      this.router.navigate(['/home']);
   }
 
 }
