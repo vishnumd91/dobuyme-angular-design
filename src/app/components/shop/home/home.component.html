@@ -63,7 +63,10 @@
     </div>
     <div class="products sec-padding">
       <mat-tab-group *ngFor="let item of items">
-        <mat-tab *ngIf="item.items.length" label="{{ item.title }}">
+        <mat-tab style="padding-top: 10px;" *ngIf="item.items.length" label="{{ item.title }}">
+          <div class="button-outer">
+            <span class="view-all-button" (click)="viewAllProduct(item.catid)">view all</span>
+          </div>
           <app-product-carousel
             [product]="item.items | slice: 0:8"
           ></app-product-carousel>
@@ -75,4 +78,4 @@
   </div>
 </div>
 <app-footer></app-footer>
-<app-profile-menu-mobile *ngIf="isMobile"></app-profile-menu-mobile>
+<!-- <app-profile-menu-mobile *ngIf="isMobile"></app-profile-menu-mobile> -->

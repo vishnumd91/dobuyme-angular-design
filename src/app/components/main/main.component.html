@@ -65,6 +65,7 @@
 
   <app-header *ngIf="url == '/home' || router.url.includes('pages') || router.url.includes('products') || router.url.includes('blog') || router.url.includes('product')"></app-header>
   <router-outlet></router-outlet>
+  <app-profile-menu-mobile *ngIf="isMobile"></app-profile-menu-mobile>
 
   <!-- <app-footer></app-footer> -->
 

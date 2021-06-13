@@ -2,11 +2,12 @@ import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../shared/services/product.service";
 import { Product } from "src/app/modals/product.model";
 import { HomeApiService } from "../../shared/services/home.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.sass"],
+  styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
   isMobile: boolean;
@@ -43,17 +44,20 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private homeService: HomeApiService
+    private homeService: HomeApiService,
+    private router:Router
   ) {}
 
   ngOnInit() {
-    if (window.screen.width <= 768) {
-      this.isMobile = true;
-    }
     this.productService.getBanners().subscribe((data) => (this.banners = data));
 
     this.homeService.getHomeData().subscribe((data) => {
       this.items = data["items"];
     });
+  }
+
+  viewAllProduct(catId : number){
+    this.router.navigate(['/home/products/all'], { queryParams: { categoryId: catId} });
+    // alert(catId)
   }
 }

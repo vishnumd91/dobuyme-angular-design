@@ -1,0 +1,15 @@
+.view-all-button{
+    border: 1px solid #ffc111;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+    margin: 10px 0 -10px 0;
+    cursor: pointer;
+    line-height: 25px;
+}
+
+.button-outer{
+  display: flex;
+  flex: 1;
+  flex-direction: row-reverse;
+}

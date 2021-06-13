@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
   public flag:any;
 
   products: Product[];
-
+  isMobile:boolean;
   indexProduct: number;
   shoppingCartItems: CartItem[] = [];
 
@@ -256,6 +256,9 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (window.screen.width <= 768) {
+      this.isMobile = true;
+    }
     this.currency = this.currencies[0];
     this.flag = this.flags[0];
   }
