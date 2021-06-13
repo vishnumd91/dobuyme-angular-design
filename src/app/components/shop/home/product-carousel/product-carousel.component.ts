@@ -12,7 +12,7 @@ import { WishlistService } from 'src/app/components/shared/services/wishlist.ser
 @Component({
   selector: 'app-product-carousel',
   templateUrl: './product-carousel.component.html',
-  styleUrls: ['./product-carousel.component.sass']
+  styleUrls: ['./product-carousel.component.scss']
 })
 export class ProductCarouselComponent implements OnInit {
   @Output() onOpenProductDialog: EventEmitter<any> = new EventEmitter();

@@ -15,6 +15,7 @@ import { MainComponent } from './components/main/main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ShopModule } from './components/shop/shop.module';
 import { SharedModule } from './components/shared/shared.module';
+import { HomeApiService } from './components/shared/services/home.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { SharedModule } from './components/shared/shared.module';
     AppRoutingModule,
     NgxImgZoomModule
   ],
-  providers: [],
+  providers: [HomeApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

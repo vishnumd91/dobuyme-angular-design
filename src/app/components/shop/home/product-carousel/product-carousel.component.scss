@@ -1,0 +1,18 @@
+.outer-div{
+  cursor: pointer;
+  padding: 1px 20px 0px 10px;
+  width: 27%;
+  @media(max-width: 768px) {
+    width: 60%;
+  }
+}
+.product-title{
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @media(max-width: 768px) {
+    width: 175px;
+  }
+}
+::ng-deep webkit-scrollbar{ width :0px; }

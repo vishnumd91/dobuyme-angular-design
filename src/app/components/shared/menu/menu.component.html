@@ -44,9 +44,9 @@
       </mat-menu>
       <a  mat-button mat-button [matMenuTriggerFor]="blog" class="mat-button">Property for Rent<mat-icon class="caret">arrow_drop_down</mat-icon></a>
       <mat-menu #blog="matMenu" [overlapTrigger]="false" class="app-dropdown">
-          <a mat-menu-item [routerLink]="['/blog/blog-list']">Rent Residential</a>
-          <a mat-menu-item [routerLink]="['/blog/blog-column']">Rent Commercial</a>
-          <a mat-menu-item [routerLink]="['/blog/blog-details']">Room for Rent</a>
+          <a *ngFor='let inputs of dropdownItems' mat-menu-item [routerLink]="[inputs.routingUrl]">{{inputs.displayName}}</a>
+          <!-- <a mat-menu-item [routerLink]="['/blog/blog-column']">Rent Commercial</a>
+          <a mat-menu-item [routerLink]="['/blog/blog-details']">Room for Rent</a> -->
 
       </mat-menu>
       <a  mat-button [matMenuTriggerFor]="pages" class="mat-button">Pages<mat-icon class="caret">arrow_drop_down</mat-icon></a>

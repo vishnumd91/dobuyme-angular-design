@@ -35,6 +35,7 @@ import { BannersFourComponent } from './banners-four/banners-four.component';
 import { BlogSectionComponent } from './blog-section/blog-section.component';
 import { BannerPromotionComponent } from './banner-promotion/banner-promotion.component';
 import { CategoriesMenuComponent } from './categories-menu/categories-menu.component';
+import { ProfileMenuMobileComponent } from './profile-menu-mobile/profile-menu-mobile.component';
 import { CategoriesSectionComponent } from './categories-section/categories-section.component';
 
 
@@ -53,6 +54,7 @@ import { CategoriesSectionComponent } from './categories-section/categories-sect
     BannerPromotionComponent,
     CategoriesMenuComponent,
     CategoriesSectionComponent,
+    ProfileMenuMobileComponent,
 
   ],
   imports: [
@@ -111,6 +113,7 @@ import { CategoriesSectionComponent } from './categories-section/categories-sect
     BannerPromotionComponent,
     CategoriesMenuComponent,
     CategoriesSectionComponent,
+    ProfileMenuMobileComponent,
 
   ],
   providers: [

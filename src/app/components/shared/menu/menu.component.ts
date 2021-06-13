@@ -7,6 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  menuDisplayNames = [
+    {
+      title: 'Motor Vehicles',
+      selectorName: 'motor_vehicles',
+    },
+  ];
+
+  dropdownItems = [
+    {
+      displayName: 'Used Cars',
+      routingUrl: '/blog/blog-list',
+    }
+  ];
+
+
   constructor() { }
 
   ngOnInit() {
