@@ -1,16 +1,27 @@
 <div class="product-item" style="overflow-x: scroll">
   <div class="swiper-wrapper h-100">
-    <div *ngFor="let product of product" class="swiper-slide outer-div">
+    <div
+      *ngFor="let product of product"
+      class="swiper-slide outer-div"
+      (click)="productView(product.id)"
+    >
       <mat-card fxLayout="column">
         <div class="product-img" style="background: white; height: 165px">
           <img
-            style="max-width: -webkit-fill-available; max-height: 160px"
+            style="
+              height: 165px;
+              width: 100%;
+              max-width: -webkit-fill-available;
+              position: relative;
+              object-fit: unset;
+              overflow: hidden;
+            "
             src="{{ product.thumb }}"
             alt=""
           />
         </div>
         <div class="product-info-wrapper" style="background: #f0f0f5">
-          <span class="category product-title">{{ product.title }}</span>
+          <span title={{product.title}} class="category product-title">{{ product.title }}</span>
           <div class="title-wrap" style="display: flex">
             <h4 style="padding-right: 5px">{{ product.currency }}</h4>
             <h4>{{ product.price }}</h4>
