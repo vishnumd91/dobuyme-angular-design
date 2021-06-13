@@ -12,4 +12,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-::ng-deep webkit-scrollbar{ width :0px; }
+.product-item {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+.product-item::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
