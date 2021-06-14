@@ -6,7 +6,7 @@ export type ProductColor = 'white' | 'black' | 'red' | 'green' | 'purple' | 'yel
 
 
 
-export class Product {
+export class Product_old {
   id?: number;
   name?: string;
   price?: number;
@@ -62,3 +62,21 @@ export class Product {
   export interface ColorFilter {
     color?: ProductColor;
   }
+export interface Product {
+  id: number,
+  identity: number,
+  ad_category: string,
+  images: string[],
+  title: string,
+  currency: number,
+  price: string,
+  make: string,
+  model: string,
+  trim: string,
+  year: number,
+  location: string,
+  mobile: string,
+  username: string,
+  date: string,
+  kilometer: string,
+}

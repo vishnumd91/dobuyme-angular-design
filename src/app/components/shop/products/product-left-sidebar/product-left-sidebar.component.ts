@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/components/shared/services/product.service';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Product, ColorFilter } from 'src/app/modals/product.model';
+import { ColorFilter, Product } from 'src/app/modals/product.model';
+import { Unsubscribe } from 'src/app/modals/Unsubscribe';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-left-sidebar',
   templateUrl: './product-left-sidebar.component.html',
   styleUrls: ['./product-left-sidebar.component.sass']
 })
-export class ProductLeftSidebarComponent implements OnInit {
+export class ProductLeftSidebarComponent extends Unsubscribe implements OnInit {
   public sidenavOpen:boolean = true;
   public animation    :   any;   // Animation
   public sortByOrder  :   string = '';   // sorting
@@ -25,14 +27,19 @@ export class ProductLeftSidebarComponent implements OnInit {
   public colors       :   any[] = [];
 
   constructor(private productService: ProductService, private route: ActivatedRoute) {
+    super();
+
     this.route.params.subscribe(
       (params: Params) => {
         const category = params['category'];
-        this.productService.getProductByCategory(category).subscribe(products => {
+        this.productService.getProductByCategory(category)
+          .pipe(takeUntil(this._destroyed$))
+        .subscribe(products => {
        this.allItems = products;
-       this.products = products.slice(0.8);
-       this.getTags(products)
-       this.getColors(products)
+          // this.products = products.slice(0.8);
+          this.products = products;
+      //  this.getTags(products)
+      //  this.getColors(products)
         })
       }
     )
@@ -111,7 +118,7 @@ export class ProductLeftSidebarComponent implements OnInit {
 
      // Initialize filetr Items
   public filterItems(): Product[] {
-    return this.items.filter((item: Product) => {
+    /* return this.items.filter((item: Product) => {
         const Colors: boolean = this.colorFilters.reduce((prev, curr) => { // Match Color
           if(item.colors){
             if (item.colors.includes(curr.color)) {
@@ -127,9 +134,10 @@ export class ProductLeftSidebarComponent implements OnInit {
           }
         }, true);
         return Colors && Tags; // return true
-    });
+    }); */
 
-}
+    return this.items;
+  }
 
 public onPageChanged(event){
   this.page = event;
@@ -167,7 +175,8 @@ onBrendsChanged(newBrend) {
   console.log(newBrend);
   this.allItems = newBrend === 'all' ? this.products : this.products.filter(
 
-    item => item.brand === newBrend
+    // item => item.brand === newBrend
+    item => item.model === newBrend
   )
   console.log(this.allItems);
 

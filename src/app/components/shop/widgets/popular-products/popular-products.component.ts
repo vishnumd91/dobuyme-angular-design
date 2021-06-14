@@ -10,6 +10,8 @@ import { ProductService } from 'src/app/components/shared/services/product.servi
 export class PopularProductsComponent implements OnInit {
 
   public products: Product[];
+  
+  // @ts-ignore
   public product            :   Product = {};
  
    constructor(private productService: ProductService) { }

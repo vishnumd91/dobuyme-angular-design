@@ -43,7 +43,7 @@ public observer   :  Subscriber<{}>;
          let stock = this.calculateStockCounts(products[index], quantity);
          if(qty != 0 && stock) {
            products[index]['quantity'] = qty;
-           message = 'The product ' + product.name + ' has been added to cart.';
+           message = 'The product ' + product.title + ' has been added to cart.';
            status = 'success';
            this.snackBar.open(message, '×', { panelClass: [status], verticalPosition: 'top', duration: 3000 });
          }
@@ -55,7 +55,7 @@ public observer   :  Subscriber<{}>;
      if(!hasItem) {
       item = { product: product, quantity: quantity };
       products.push(item);
-      message = 'The product ' + product.name + ' has been added to cart.';
+      message = 'The product ' + product.title + ' has been added to cart.';
       status = 'success';
       this.snackBar.open(message, '×', { panelClass: [status], verticalPosition: 'top', duration: 3000 });
   }
@@ -69,7 +69,8 @@ public observer   :  Subscriber<{}>;
 public calculateStockCounts(product: CartItem, quantity): CartItem | Boolean {
   let message, status;
   let qty   = product.quantity + quantity;
-  let stock = product.product.stock;
+  // let stock = product.product.stock;
+  let stock = product.product.id;
   if(stock < qty) {
     // this.toastrService.error('You can not add more items than available. In stock '+ stock +' items.');
     this.snackBar.open('You can not choose more items than available. In stock ' + stock + ' items.', '×', { panelClass: 'error', verticalPosition: 'top', duration: 3000 });
@@ -94,6 +95,9 @@ public removeFromCart(item: CartItem) {
 public getTotalAmount(): Observable<number> {
   return this.cartItems.pipe(map((product: CartItem[]) => {
     return products.reduce((prev, curr: CartItem) => {
+      // return prev + curr.product.price * curr.quantity;
+
+      // @ts-ignore
       return prev + curr.product.price * curr.quantity;
     }, 0);
   }));

@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, Subscriber } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Product } from 'src/app/modals/product.model';
+// import { Product } from 'src/app/modals/product.model';
 import { MatSnackBar } from '@angular/material';
-import { map } from 'rxjs/operators';
-
-
-
+import { filter, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { Product } from 'src/app/modals/product.model';
 // Get product from Localstorage
 let products = JSON.parse(localStorage.getItem("compareItem")) || [];
 
@@ -19,6 +18,8 @@ export class ProductService {
 
   private _url: string = "assets/data/";
   public url = "assets/data/banners.json";
+
+  private urlListing = environment.baseUrl + '/listing/';
 
   public compareProducts : BehaviorSubject<Product[]> = new BehaviorSubject([]);
   public observer   :  Subscriber<{}>;
@@ -87,12 +88,12 @@ public hasProduct(product: Product): boolean {
   if (this.hasProduct(product)) {
     item = products.filter(item => item.id === product.id)[0];
     const index = products.indexOf(item);
-    this.snackBar.open('The product  ' + product.name + ' already added to comparison list.', '×', { panelClass: 'error', verticalPosition: 'top', duration: 3000 });
+    this.snackBar.open('The product  ' + product.title + ' already added to comparison list.', '×', { panelClass: 'error', verticalPosition: 'top', duration: 3000 });
 
   } else {
     if(products.length < 4)
       products.push(product);
-      message = 'The product ' + product.name + ' has been added to comparison list.';
+      message = 'The product ' + product.title + ' has been added to comparison list.';
       status = 'success';
       this.snackBar.open(message, '×', { panelClass: [status], verticalPosition: 'top', duration: 3000 });
 
@@ -110,16 +111,32 @@ public removeFromCompare(product: Product) {
 }
 
    // Get Products By category
+   private productsByCategory: Product[];
    public getProductByCategory(category: string): Observable<Product[]> {
-    return this.products().pipe(map(items =>
+    /* return this.products().pipe(map(items =>
        items.filter((item: Product) => {
          if(category == 'all')
             return item
             else
-            return item.category === category;
+            return item.ad_category === category;
 
        })
-     ));
+     )); */
+
+     return new Observable<Product[]>(observer => {
+       if (this.productsByCategory)
+        observer.next(this.productsByCategory)
+
+      // @ts-ignore
+       this.httpClient.get<Product[]>(this.urlListing + category)
+        .subscribe(products => {
+          if (JSON.stringify(products) != JSON.stringify(this.products)) {
+            this.productsByCategory = products;
+            observer.next(products)
+          }
+          observer.complete()
+        })
+    })
   }
 
 }

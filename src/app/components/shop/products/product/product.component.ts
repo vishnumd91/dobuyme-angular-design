@@ -40,6 +40,8 @@ export class ProductComponent implements OnInit {
 
 
   public openProductDialog(product){
+    return this.router.navigate(['/home/product', product.id]);
+
     let dialogRef = this.dialog.open(ProductDialogComponent, {
         data: product,
         panelClass: 'product-dialog',

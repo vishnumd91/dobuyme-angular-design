@@ -21,6 +21,7 @@ export class ProductDetailsComponent implements OnInit {
   @ViewChild('zoomViewer', { static: true }) zoomViewer;
   @ViewChild(SwiperDirective, { static: true }) directiveRef: SwiperDirective;
 
+  // @ts-ignore
   public product            :   Product = {};
   public products           :   Product[] = [];
 
