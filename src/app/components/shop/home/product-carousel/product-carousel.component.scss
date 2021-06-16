@@ -17,6 +17,11 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
+.outer-div:hover {
+  transform: translateY(-5px) scale(1.065) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+      0 24px 46px var(--box-shadow-color);
+}
 .product-item::-webkit-scrollbar {
   width: 0;
   height: 0;
