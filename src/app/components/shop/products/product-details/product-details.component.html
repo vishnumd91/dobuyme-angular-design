@@ -9,8 +9,11 @@
       >
         <div fxFlex="100" fxFlex.gt-md="50" fxFlex.md="45">
           <mat-card class="products-image">
-            <div class=" products-image-height">
-              <img class="image-base-class" [src]="products.pictures[bigProductImageIndex]" />
+            <div class="products-image-height">
+              <img
+                class="image-base-class"
+                [src]="products.pictures[bigProductImageIndex]"
+              />
             </div>
           </mat-card>
 
@@ -22,7 +25,15 @@
                   class="swiper-slide"
                 >
                   <mat-card (click)="selectImage(i)" class="p-1">
-                    <img style="position:relative;height:100px;padding-right:10px;" [src]="image" class="swiper-lazy" />
+                    <img
+                      style="
+                        position: relative;
+                        height: 100px;
+                        padding-right: 10px;
+                      "
+                      [src]="image"
+                      class="swiper-lazy"
+                    />
                     <div class="swiper-lazy-preloader"></div>
                   </mat-card>
                 </div>
@@ -52,11 +63,30 @@
                 <p style="padding-right: 5px">{{ products.currency }}</p>
                 {{ products.price }}
               </h4>
-              <h5><span style="font-weight: bold;">Year :</span> {{products.year}}</h5>
-              <h5><span style="font-weight: bold;">Location :</span> {{products.location}}</h5>
-              <h5><span style="font-weight: bold;">Posted by :</span> {{products.username}}</h5>
-              <h5><span style="font-weight: bold;">Contact :</span> {{products.mobile}}</h5>
-              <h6><span style="font-weight: bold;">Posted On :</span> {{ products.date }}</h6>
+              <h5>
+                <span style="font-weight: bold">Year :</span>
+                {{ products.year }}
+              </h5>
+              <h5>
+                <span style="font-weight: bold">Location :</span>
+                {{ products.location }}
+              </h5>
+              <h5>
+                <span style="font-weight: bold">Posted by :</span>
+                {{ products.username }}
+              </h5>
+              <h5>
+                <span style="font-weight: bold">Contact :</span>
+                {{ products.mobile }}
+              </h5>
+              <h6>
+                <span style="font-weight: bold">Posted On :</span>
+                {{ products.date }}
+              </h6>
+
+              <mat-card>
+
+              </mat-card>
             </div>
           </div>
         </div>
@@ -72,19 +102,54 @@
             </mat-tab>
             <mat-tab label="Details">
               <div class="full-desc lh text-muted">
-                <h5><span style="font-weight: bold;">Transmission Type :</span> {{products.transmission_type}}</h5>
-                <h5><span style="font-weight: bold;">Color :</span> {{products.color}}</h5>
-                <h5><span style="font-weight: bold;">Kilometers :</span> {{products.kilometer}}</h5>
-                <h5><span style="font-weight: bold;">Model :</span> {{products.model}}</h5>
-                <h5><span style="font-weight: bold;">Body type :</span> {{products.body_type}}</h5>
-                <h5><span style="font-weight: bold;">Fuel :</span> {{products.fuel}}</h5>
-                <h5><span style="font-weight: bold;">Door :</span> {{products.door}}</h5>
-                <h5><span style="font-weight: bold;">Horse power :</span> {{products.horse_power}}</h5>
-                <h5><span style="font-weight: bold;">Make :</span> {{products.make}}</h5>
-                <h5><span style="font-weight: bold;">Mechanical condition :</span> {{products.mechanical_condition}}</h5>
-                <h5><span style="font-weight: bold;">Number of cylinders :</span> {{products.number_of_cylinders}}</h5>
-                <h5><span style="font-weight: bold;">Specifications :</span> {{products.specs}}</h5>
-
+                <h5>
+                  <span style="font-weight: bold">Transmission Type :</span>
+                  {{ products.transmission_type }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Color :</span>
+                  {{ products.color }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Kilometers :</span>
+                  {{ products.kilometer }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Model :</span>
+                  {{ products.model }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Body type :</span>
+                  {{ products.body_type }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Fuel :</span>
+                  {{ products.fuel }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Door :</span>
+                  {{ products.door }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Horse power :</span>
+                  {{ products.horse_power }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Make :</span>
+                  {{ products.make }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Mechanical condition :</span>
+                  {{ products.mechanical_condition }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Number of cylinders :</span>
+                  {{ products.number_of_cylinders }}
+                </h5>
+                <h5>
+                  <span style="font-weight: bold">Specifications :</span>
+                  {{ products.specs }}
+                </h5>
               </div>
             </mat-tab>
           </mat-tab-group>

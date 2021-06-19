@@ -61,11 +61,6 @@ export class ProductDetailsComponent extends Unsubscribe implements OnInit {
       }, 500);
       console.log("govind", this.products);
     });
-    // this.productsService
-    //   .getProducts()
-    //   .subscribe((product) => (this.products = product));
-
-    // this.getRelatedProducts();
   }
 
   ngAfterViewInit() {
