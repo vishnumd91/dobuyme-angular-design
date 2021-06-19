@@ -3,6 +3,7 @@ import { ProductService } from "../../shared/services/product.service";
 import { Product } from "src/app/modals/product.model";
 import { HomeApiService } from "../../shared/services/home.service";
 import { Router } from "@angular/router";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: "app-home",
@@ -45,19 +46,23 @@ export class HomeComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private homeService: HomeApiService,
-    private router:Router
+    private router:Router,
+    private spinner: NgxSpinnerService,
   ) {}
 
   ngOnInit() {
+    this.spinner.show();
     this.productService.getBanners().subscribe((data) => (this.banners = data));
 
     this.homeService.getHomeData().subscribe((data) => {
       this.items = data["items"];
+      this.spinner.hide()
     });
   }
 
   viewAllProduct(catId : number){
-    this.router.navigate(['/home/products/all'], { queryParams: { categoryId: catId} });
+    this.router.navigate(['/home/products/car'], { queryParams: { categoryId: catId} });
     // alert(catId)
   }
+
 }

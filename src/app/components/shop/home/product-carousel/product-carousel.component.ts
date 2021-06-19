@@ -81,4 +81,11 @@ export class ProductCarouselComponent implements OnInit {
     public addToCompare(product: Product) {
       this.productService.addToCompare(product);
    }
+
+   productViewPage(product){
+    this.router.navigate(['/home/product', product.id]);
+     console.log("govind",product)
+   }
 }
+
+

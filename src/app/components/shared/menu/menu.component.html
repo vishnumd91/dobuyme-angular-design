@@ -3,7 +3,7 @@
       <a [routerLink]="['/home']" routerLinkActive="router-link-active"  mat-button class="mat-button">Home</a>
       <!-- <a [routerLink]="['/home/products/all']" routerLinkActive="router-link-active"  mat-button class="mat-button">Products</a> -->
       <a [routerLink]="['/home/products/car']" routerLinkActive="router-link-active"  mat-button class="mat-button">Products</a>
-      <a  mat-button [matMenuTriggerFor]="shop" class="mat-button" (click)="openMegaMenu()">Shop<mat-icon class="caret">arrow_drop_down</mat-icon></a>
+      <!-- <a  mat-button [matMenuTriggerFor]="shop" class="mat-button" (click)="openMegaMenu()">Shop<mat-icon class="caret">arrow_drop_down</mat-icon></a> -->
       <mat-menu #shop="matMenu" [overlapTrigger]="false" class="app-dropdown mega-menu">
           <div fxLayout="row wrap">
               <div fxFlex="25" fxLayout="column" class="p-1">
@@ -43,14 +43,14 @@
           </div>
 
       </mat-menu>
-      <a  mat-button mat-button [matMenuTriggerFor]="blog" class="mat-button">Property for Rent<mat-icon class="caret">arrow_drop_down</mat-icon></a>
+      <!-- <a  mat-button mat-button [matMenuTriggerFor]="blog" class="mat-button">Property for Rent<mat-icon class="caret">arrow_drop_down</mat-icon></a> -->
       <mat-menu #blog="matMenu" [overlapTrigger]="false" class="app-dropdown">
           <a *ngFor='let inputs of dropdownItems' mat-menu-item [routerLink]="[inputs.routingUrl]">{{inputs.displayName}}</a>
           <!-- <a mat-menu-item [routerLink]="['/blog/blog-column']">Rent Commercial</a>
           <a mat-menu-item [routerLink]="['/blog/blog-details']">Room for Rent</a> -->
 
       </mat-menu>
-      <a  mat-button [matMenuTriggerFor]="pages" class="mat-button">Pages<mat-icon class="caret">arrow_drop_down</mat-icon></a>
+      <!-- <a  mat-button [matMenuTriggerFor]="pages" class="mat-button">Pages<mat-icon class="caret">arrow_drop_down</mat-icon></a> -->
       <mat-menu #pages="matMenu" [overlapTrigger]="false" class="app-dropdown">
         <a [routerLink]="['/pages/about']" mat-menu-item>About Us</a>
         <a mat-menu-item [routerLink]="['/pages/faq']" >FAQ</a>
@@ -62,7 +62,7 @@
         <a mat-menu-item [routerLink]="['/pages/my-account']">My Account</a>
         <a mat-menu-item [routerLink]="['/pages/error']">404</a>
     </mat-menu>
-      <a [routerLink]="['/pages/contact']" routerLinkActive="router-link-active"   mat-button class="mat-button">Contact</a>
+      <a [routerLink]="['/home']" routerLinkActive="router-link-active"   mat-button class="mat-button">Contact</a>
     </div>
     <!-- <app-shopping-widgets *ngIf="url == '/home/one'" [shoppingCartItems]="shoppingCartItems"></app-shopping-widgets> -->
     <!-- <div class="main-menu-wrapper" fxLayout="row" fxLayoutAlign="space-between center" >

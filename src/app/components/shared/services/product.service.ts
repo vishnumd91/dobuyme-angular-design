@@ -139,4 +139,8 @@ public removeFromCompare(product: Product) {
     })
   }
 
+  getProducDetails(id){
+    console.log("govind",id)
+    return this.httpClient.get(`${environment.baseUrl}/view/details?id=${id}`);
+  }
 }

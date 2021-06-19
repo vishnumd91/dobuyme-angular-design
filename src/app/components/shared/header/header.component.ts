@@ -7,7 +7,7 @@ import { SidebarMenuService } from '../sidebar/sidebar-menu.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.sass']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
   public sidenavMenuItems:Array<any>;

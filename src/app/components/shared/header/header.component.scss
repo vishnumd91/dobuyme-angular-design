@@ -1,0 +1,7 @@
+.header-logo{
+  width: 20vh;
+  margin-left: -3vw;
+  @media(max-width: 1024px) {
+    margin-left: 0vw;
+  }
+}
