@@ -41,11 +41,8 @@ export class ProductLeftSidebarComponent extends Unsubscribe implements OnInit {
         .pipe(takeUntil(this._destroyed$))
         .subscribe((products) => {
           this.allItems = products;
-          // this.products = products.slice(0.8);
           this.products = products;
           this.spinner.hide();
-          //  this.getTags(products)
-          //  this.getColors(products)
         });
     });
   }
@@ -116,23 +113,6 @@ export class ProductLeftSidebarComponent extends Unsubscribe implements OnInit {
 
   // Initialize filetr Items
   public filterItems(): Product[] {
-    /* return this.items.filter((item: Product) => {
-        const Colors: boolean = this.colorFilters.reduce((prev, curr) => { // Match Color
-          if(item.colors){
-            if (item.colors.includes(curr.color)) {
-              return prev && true;
-            }
-          }
-        }, true);
-        const Tags: boolean = this.tagsFilters.reduce((prev, curr) => { // Match Tags
-          if(item.tags) {
-            if (item.tags.includes(curr)) {
-              return prev && true;
-            }
-          }
-        }, true);
-        return Colors && Tags; // return true
-    }); */
 
     return this.items;
   }
@@ -142,17 +122,6 @@ export class ProductLeftSidebarComponent extends Unsubscribe implements OnInit {
     this.allItems;
     window.scrollTo(0, 0);
   }
-
-  // Update price filter
-  //   public updatePriceFilters(price: any) {
-  //     let items: any[] = [];
-  //     this.products.filter((item: Product) => {
-  //         if (item.price >= price[0] && item.price <= price[1] )  {
-  //            items.push(item); // push in array
-  //         }
-  //     });
-  //     this.items = items;
-  // }
 
   // Update price filter
   public updatePriceFilters(price: any) {
@@ -171,7 +140,6 @@ export class ProductLeftSidebarComponent extends Unsubscribe implements OnInit {
       newBrend === "all"
         ? this.products
         : this.products.filter(
-            // item => item.brand === newBrend
             (item) => item.model === newBrend
           );
     console.log(this.allItems);

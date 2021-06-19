@@ -62,7 +62,6 @@ export class HomeComponent implements OnInit {
 
   viewAllProduct(catId : number){
     this.router.navigate(['/home/products/car'], { queryParams: { categoryId: catId} });
-    // alert(catId)
   }
 
 }

@@ -2,31 +2,17 @@
   <mat-card fxLayout="column" style="cursor: pointer;" (click)="openProductDialog(product)">
     <div class="product-img">
         <a class="product-link">
-          <img [src]="product.images[0]" alt="">
+          <img style="object-fit:cover;" [src]="product.images[0]" alt="">
        </a>
     </div>
      <div class="product-info-wrapper">
         <div class="title-wrap">
            <h4>{{product.title}}</h4>
         </div>
-        <!-- <div class="stars">
-           <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
-           <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
-           <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
-           <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
-           <mat-icon class="mat-icon-xs mat-icon material-icons ng-star-inserted">star_rate</mat-icon>
-        </div> -->
         <div class="price-wrap" fxLayout="row" fxLayoutAlign="space-between center">
-         <!-- <p>{{product.price | currency:productsService?.currency:'symbol'}}</p> -->
          <p style="font-size: 18px;">AED  {{product.price}}</p>
-        <!-- <a (click)="addToCart(product)"><mat-icon class="mat-icon-lg mat-icon material-icons">shopping_cart</mat-icon></a> -->
         </div>
         <span class="category">{{product.location}}</span>
-        <!-- <div class="icons" fxLayout="column">
-           <a (click)="addToWishlist(product)"><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon></a>
-           <a (click)="openProductDialog(product)"><mat-icon>remove_red_eye</mat-icon></a>
-           <a (click)="addToCompare(product)"><mat-icon>cached</mat-icon></a>
-         </div> -->
      </div>
   </mat-card>
 </div>

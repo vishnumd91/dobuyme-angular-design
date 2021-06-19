@@ -18,7 +18,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: "app-product-details",
   templateUrl: "./product-details.component.html",
-  styleUrls: ["./product-details.component.sass"],
+  styleUrls: ["./product-details.component.scss"],
 })
 export class ProductDetailsComponent extends Unsubscribe implements OnInit {
   public config: SwiperConfigInterface = {};
@@ -47,16 +47,18 @@ export class ProductDetailsComponent extends Unsubscribe implements OnInit {
     private spinner: NgxSpinnerService,
   ) {
     super();
+    this.spinner.show();
     this.route.params.subscribe((params: Params) => {
       this.product_id = params["id"];
     });
   }
 
   ngOnInit() {
-    this.spinner.show();
     this.productsService.getProducDetails(4842).subscribe((data) => {
       this.products = data;
-      this.spinner.hide();
+      setTimeout(() => {
+        this.spinner.hide();
+      }, 500);
       console.log("govind", this.products);
     });
     // this.productsService
@@ -95,20 +97,20 @@ export class ProductDetailsComponent extends Unsubscribe implements OnInit {
     };
   }
 
-  public openProductDialog(products, bigProductImageIndex) {
+  public openProductDialog(product, bigProductImageIndex) {
     let dialogRef = this.dialog.open(ProductZoomComponent, {
-      data: { products, index: bigProductImageIndex },
+      data: { product, index: bigProductImageIndex },
       panelClass: "product-dialog",
     });
-    dialogRef.afterClosed().subscribe((products) => {
-      if (products) {
-        this.router.navigate(["/products", products.id, products.name]);
+    dialogRef.afterClosed().subscribe((product) => {
+      if (product) {
+        this.router.navigate(["/products", product.id, product.name]);
       }
     });
   }
 
   public selectImage(index) {
-    console.log(this.product);
+    // console.log(this.product);
     console.log(index);
     this.bigProductImageIndex = index;
   }

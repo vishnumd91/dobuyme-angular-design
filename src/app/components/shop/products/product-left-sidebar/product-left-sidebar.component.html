@@ -26,9 +26,6 @@
                 </mat-expansion-panel-header>
 
                 <div class="brands">
-                  <!-- <app-brands
-                    (brandChanged)="onBrendsChanged($event)"
-                  ></app-brands> -->
                 </div>
               </mat-expansion-panel>
               <mat-expansion-panel>
@@ -37,16 +34,9 @@
                     <span>Price</span>
                   </mat-panel-title>
                 </mat-expansion-panel-header>
-
-                <!-- <app-price
-                  (priceFilters)="updatePriceFilters($event)"
-                ></app-price> -->
               </mat-expansion-panel>
             </mat-accordion>
           </div>
-          <!-- <div class="popular-products" fxFlex.lt-md="100">
-            <app-popular-products></app-popular-products>
-          </div> -->
         </div>
       </div>
       <div
@@ -69,21 +59,7 @@
           >
             <mat-icon>more_vert</mat-icon>
           </button>
-          <!-- <div>
-            <select (change)="onChangeSorting($event.target.value)">
-              <option value="asc">Sorting items</option>
-              <option value="asc">Ascending Order</option>
-              <option value="desc">Descending Order</option>
-              <option value="a-z">Alphabetically, A-Z</option>
-              <option value="z-a">Alphabetically, Z-A</option>
-              <option value="low">Price, low to high</option>
-              <option value="high">Price, high to low</option>
-            </select>
-          </div> -->
           <div>
-            <!-- <button mat-icon-button (click)="changeViewType('list', 100)">
-              <mat-icon>view_list</mat-icon>
-            </button> -->
             <button mat-icon-button (click)="changeViewType('list', 33.3)">
               <mat-icon>view_module</mat-icon>
             </button>
