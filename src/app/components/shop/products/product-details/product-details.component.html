@@ -85,14 +85,16 @@
               </h6>
 
               <mat-card>
-
+                <agm-map style="height:235px" [latitude]="lat" [longitude]="lng">
+                  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                </agm-map>
               </mat-card>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="review-wrapper" fxFlex="100" fxFlex.md="75">
+      <div class="review-wrapper" fxFlex="100" fxFlex.md="75" style="padding-bottom: 10px;">
         <mat-card>
           <mat-tab-group [@.disabled]="true" [selectedIndex]="0">
             <mat-tab label="Description">

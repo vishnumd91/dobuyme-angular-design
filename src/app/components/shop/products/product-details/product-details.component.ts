@@ -29,7 +29,8 @@ export class ProductDetailsComponent extends Unsubscribe implements OnInit {
 
   // @ts-ignore
   public products: any = [];
-
+  lat:number = 25.04542;
+  lng:number = 55.249401;
   public image: any;
   public zoomImage: any;
 
