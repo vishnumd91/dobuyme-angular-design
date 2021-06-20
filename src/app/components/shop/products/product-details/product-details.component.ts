@@ -48,7 +48,6 @@ export class ProductDetailsComponent extends Unsubscribe implements OnInit {
     private spinner: NgxSpinnerService,
   ) {
     super();
-    this.spinner.show();
     this.route.params.subscribe((params: Params) => {
       this.product_id = params["id"];
     });
@@ -57,10 +56,6 @@ export class ProductDetailsComponent extends Unsubscribe implements OnInit {
   ngOnInit() {
     this.productsService.getProducDetails(4842).subscribe((data) => {
       this.products = data;
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 500);
-      console.log("govind", this.products);
     });
   }
 
