@@ -77,8 +77,4 @@ export class ProductCarouselComponent implements OnInit {
     this.wishlistService.addToWishlist(product);
  }
 
-    // Add to compare
-    public addToCompare(product: Product) {
-      this.productService.addToCompare(product);
-   }
 }

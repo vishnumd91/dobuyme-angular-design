@@ -19,7 +19,6 @@ export class CompareComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.product = this.productService.getComapreProducts();
     this.product.subscribe(products => this.products = products);
     console.log(this.product);
   }
@@ -27,11 +26,6 @@ export class CompareComponent implements OnInit {
      // Add to cart
      public addToCart(product: Product, quantity: number = 1) {
       this.cartService.addToCart(product, quantity);
-   }
-
-   // Remove from compare list
-   public removeItem(product: Product) {
-     this.productService.removeFromCompare(product);
    }
 
 }
