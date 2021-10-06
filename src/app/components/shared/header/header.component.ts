@@ -3,6 +3,7 @@ import { Product } from 'src/app/modals/product.model';
 import { CartItem } from 'src/app/modals/cart-item';
 import { CartService } from '../services/cart.service';
 import { SidebarMenuService } from '../sidebar/sidebar-menu.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { SidebarMenuService } from '../sidebar/sidebar-menu.service';
 })
 export class HeaderComponent implements OnInit {
   public sidenavMenuItems:Array<any>;
-
+  currentRoute: string = "";
   public currencies = ['USD', 'EUR'];
   public currency:any;
   public flags = [
@@ -29,11 +30,20 @@ export class HeaderComponent implements OnInit {
   shoppingCartItems: CartItem[] = [];
 
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router: Router) {
+      this.router.events
+      .subscribe((event:NavigationEnd) => 
+      {
+        if(event.url){
+          this.currentRoute = event.url;          
+        }
+        console.log(event);
+      });
     this.cartService.getItems().subscribe(shoppingCartItems => this.shoppingCartItems = shoppingCartItems);
   }
 
   ngOnInit() {
+    console.log(window.URL)
     this.currency = this.currencies[0];
     this.flag = this.flags[0];
   }

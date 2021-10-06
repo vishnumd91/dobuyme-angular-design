@@ -16,6 +16,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 import { ProductCarouselComponent } from './../shop/home/product-carousel/product-carousel.component';
+import { PostViewComponent } from './products/post-view/post-view.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ProductCarouselComponent } from './../shop/home/product-carousel/produc
     ProductComponent,
     ProductDialogComponent,
     ProductLeftSidebarComponent,
+    PostViewComponent,
   ],
   imports: [
     CommonModule,

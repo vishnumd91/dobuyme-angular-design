@@ -11,7 +11,7 @@
       <span style="font-size: 25px;font-weight: bold;">Post Hub</span>
         <!-- <a [routerLink]="['/home/one']" routerLinkActive="router-link-active" ><img style="width: 20vh;margin-left: -3vw;" src=""></a> -->
     </div>
-    <div fxflexoffset.gt-sm="10"  fxFlex class="search-form">
+    <div fxflexoffset.gt-sm="10" *ngIf="!currentRoute.includes('post-view')"  fxFlex class="search-form">
         <form class="search-form" fxLayout="row">
           <div class="form-wrap">
              <input type="text" placeholder="Type to search...">

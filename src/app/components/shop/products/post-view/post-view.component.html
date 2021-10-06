@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="product-item" style="padding: 30px;">
+    <mat-card fxLayout="column" style="    background: wheat;">
+      <div class="product-img">
+      </div>
+       <div class="product-info-wrapper">
+          <div class="title-wrap" style="display: flex;padding-bottom: 20px;">
+             <h3>{{postDetails.title}}</h3>
+          </div>
+          <div style="padding-bottom:30px;">
+            <span>{{postDetails.body}}</span>
+         </div>
+         <h3 style="font-size: 20px !important; padding-bottom: 20px; text-decoration: underline;">Comments</h3>
+         <div *ngIf="postComments.length">
+            <mat-card fxLayout="column" style="width: 75vw; display: grid;margin-bottom: 10px;" *ngFor="let comment of postComments">
+               <div class="title-wrap" style="display: flex;padding-bottom: 20px;">
+                  <mat-icon style="padding-right: 10px;color: blue;">account_circle</mat-icon>
+                  <div style="display: grid;">
+                     <span style="font-size: 15px;font-weight: bold;
+                     padding-bottom: 5px">{{comment.name}}</span>
+                     <span>{{comment.email}}</span>
+                  </div>
+               </div>
+               <span>{{comment.body}} </span>
+            </mat-card>
+         </div>
+       </div>
+    </mat-card>
+  </div>
+
+  <app-footer></app-footer>

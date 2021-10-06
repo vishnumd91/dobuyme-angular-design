@@ -34,6 +34,13 @@ export class ProductService {
     return this.httpClient.get('https://jsonplaceholder.typicode.com/posts');
     // return this.httpClient.get('assets/data/products2.json');
   }
+  postDetails(postId){
+    return this.httpClient.get(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+  }
+
+  postComments(postId){
+    return this.httpClient.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
+  }
    // Get Products By category
    public getProductByCategory(category: string): Observable<Product[]> {
     return this.products().pipe(map(items =>

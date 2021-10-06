@@ -21,4 +21,8 @@ export class ProductComponent implements OnInit {
     console.log("haiii",this.posts)
   }
 
+  postDetails(postId:number){
+    this.router.navigate(['/post-view'], { queryParams: { postId:postId } });
+  }
+
 }
